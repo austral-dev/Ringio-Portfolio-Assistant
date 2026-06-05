@@ -1,4 +1,5 @@
 @baseUrl = http://localhost:1337/api/v1
+@prodUrl = https://trabajo-integrador-tp2.onrender.com/api/v1
 
 ### Register
 POST {{baseUrl}}/auth/register
@@ -22,3 +23,21 @@ Content-Type: application/json
 ### Ruta protegida
 GET http://localhost:1337/health
 Authorization: Bearer {{loginRequest.response.body.token}}
+
+### Register PROD
+POST {{prodUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
+### Login PROD
+# @name loginRequest
+POST {{prodUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
