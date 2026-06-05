@@ -1,0 +1,24 @@
+@baseUrl = http://localhost:1337/api/v1
+
+### Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
+
+### Login
+# @name loginRequest
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
+
+### Ruta protegida
+GET http://localhost:1337/health
+Authorization: Bearer {{loginRequest.response.body.token}}
