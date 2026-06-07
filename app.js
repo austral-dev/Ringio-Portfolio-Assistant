@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { authRouter } from './src/routes/auth.route.js';
+import { aiRouter } from './src/routes/ai.route.js';
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.get("/health", (request, response) => {
 })
 
 app.use("/api/v1", authRouter);
+app.use("/api/v1", aiRouter);
+
 
 app.use("/", (request, response) => {
     response.status(404).json({errMsg: "Página no encontrada."})
