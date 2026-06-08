@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Portfolio Assistant - API</title>
+    <meta name="description" content="REST API para asistencia inteligente en la gestión de portfolios de inversión, potenciada por un sistema RAG y datos en tiempo real.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="glow-bg-secondary"></div>
+    
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">📈</span>
+                <span class="logo-text">InvestAssist <span class="badge">API</span></span>
+            </div>
+            <nav>
+                <a href="#features">Características</a>
+                <a href="#how-it-works">Cómo Funciona</a>
+                <a href="#api-endpoints">Endpoints</a>
+                <a href="/api/docs" class="btn btn-secondary">Documentación</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-container">
+                <h1 class="hero-title">Gestión Inteligente de <span class="gradient-text">Portfolios de Inversión</span></h1>
+                <p class="hero-subtitle">API REST potenciada por un sistema RAG (Retrieval-Augmented Generation) con datos del mercado en tiempo real para decisiones financieras más inteligentes.</p>
+                <div class="hero-actions">
+                    <a href="/api/docs" class="btn btn-primary">Explorar API</a>
+                    <a href="#how-it-works" class="btn btn-tertiary">¿Cómo funciona?</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Características Principales</h2>
+                <div class="grid">
+                    <div class="card" id="card-rag">
+                        <div class="card-icon">🧠</div>
+                        <h3>Sistema RAG Integrado</h3>
+                        <p>Las consultas se enriquecen dinámicamente con contexto en tiempo real del mercado y su portfolio.</p>
+                    </div>
+                    <div class="card" id="card-market">
+                        <div class="card-icon">⚡</div>
+                        <h3>Datos en Tiempo Real</h3>
+                        <p>Integración directa con APIs financieras líderes para mantener las cotizaciones siempre actualizadas.</p>
+                    </div>
+                    <div class="card" id="card-secure">
+                        <div class="card-icon">🔒</div>
+                        <h3>Seguridad JWT</h3>
+                        <p>Autenticación robusta basada en tokens JSON Web (JWT) para proteger el acceso a sus datos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">¿Cómo Funciona el Asistente?</h2>
+                <div class="steps-flow">
+                    <div class="step-card" id="step-1">
+                        <div class="step-num">01</div>
+                        <h4>Autenticación & Consulta</h4>
+                        <p>El usuario se autentica de forma segura y envía una pregunta sobre su portfolio de inversión.</p>
+                    </div>
+                    <div class="step-arrow">➔</div>
+                    <div class="step-card" id="step-2">
+                        <div class="step-num">02</div>
+                        <h4>Recuperación de Datos</h4>
+                        <p>El sistema consulta las cotizaciones y noticias más recientes de los activos involucrados.</p>
+                    </div>
+                    <div class="step-arrow">➔</div>
+                    <div class="step-card" id="step-3">
+                        <div class="step-num">03</div>
+                        <h4>Generación Enriquecida</h4>
+                        <p>El modelo generativo (Gemini) procesa la información para dar una recomendación fundamentada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="api-endpoints" class="api-endpoints">
+            <div class="container">
+                <h2 class="section-title">Endpoints de la API</h2>
+                <div class="endpoints-container">
+                    <div class="endpoints-list">
+                        <div class="endpoint-item">
+                            <span class="method get">GET</span>
+                            <span class="path">/health</span>
+                            <span class="desc">Estado del servidor y conexión.</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <span class="method post">POST</span>
+                            <span class="path">/api/v1/auth/register</span>
+                            <span class="desc">Registro de nuevo usuario.</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <span class="method post">POST</span>
+                            <span class="path">/api/v1/auth/login</span>
+                            <span class="desc">Inicio de sesión (obtiene token JWT).</span>
+                        </div>
+                        <div class="endpoint-item">
+                            <span class="method post">POST</span>
+                            <span class="path">/api/v1/ai/query</span>
+                            <span class="desc">Consulta RAG al asistente inteligente.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 InvestAssist API. Desarrollado con ❤️ por el equipo de TP2.</p>
+            <div class="footer-links">
+                <a href="https://github.com/austral-dev/TRABAJO_INTEGRADOR_TP2" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

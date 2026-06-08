@@ -11,6 +11,7 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.static('static'));
 
 app.get("/health", (request, response) => {
     response.status(200).json({status: "ok", message: "El servidor está conectado y funciona correctamente.", timestamp: new Date().toISOString()})
