@@ -45,15 +45,27 @@ Content-Type: application/json
 ### Chat con la IA
 POST http://localhost:1337/api/v1/chat
 Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
 
 {
     "message": "¿Cuáles son las mejores criptomonedas para invertir a largo plazo?"
 }
 
 
+### Chat con mercado tradicional
+POST http://localhost:1337/api/v1/chat
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "message": "¿Cómo están las principales acciones del mercado hoy?"
+}
+
+
 ### Pregunta fuera de tema
 POST http://localhost:1337/api/v1/chat
 Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
 
 {
     "message": "¿Quién ganó el mundial 2022?"

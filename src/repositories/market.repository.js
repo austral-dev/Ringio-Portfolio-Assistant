@@ -1,6 +1,9 @@
 import axios from 'axios';
+import { config } from '../config/config.js';
 
 const COINGECKO_BASE_URL = 'https://api.coingecko.com/api/v3';
+const ALPHA_VANTAGE_BASE_URL = 'https://www.alphavantage.co/query';
+
 
 export const getCryptoPrice = async (coinIds) => {
     const response = await axios.get(`${COINGECKO_BASE_URL}/simple/price`, {
@@ -26,4 +29,24 @@ export const getTopCoins = async (limit = 10) => {
     });
 
     return response.data;
+};
+
+
+
+
+export const getStockPrice = async (symbol) => {
+    const response = await axios.get(ALPHA_VANTAGE_BASE_URL, {
+        params: {
+            function: 'GLOBAL_QUOTE',
+            symbol,
+            apikey: config.alphaVantageApiKey,
+        }
+    });
+
+    return response.data['Global Quote'];
+};
+
+export const getTopStocks = async () => {
+    const results = await Promise.all(config.topStocks.map(getStockPrice));
+    return results.filter(stock => stock && stock['01. symbol']);
 };
