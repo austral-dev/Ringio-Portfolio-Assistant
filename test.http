@@ -28,7 +28,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 
 
 ### Chat con la IA
-POST http://localhost:1337/api/v1/chat
+POST {{baseUrl}}/chat
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -38,7 +38,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 
 
 ### Chat con mercado tradicional
-POST http://localhost:1337/api/v1/chat
+POST {{baseUrl}}/chat
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -48,7 +48,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 
 
 ### Pregunta fuera de tema
-POST http://localhost:1337/api/v1/chat
+POST {{baseUrl}}/chat
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
