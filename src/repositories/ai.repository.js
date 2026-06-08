@@ -23,6 +23,8 @@ ${context}
 Pregunta del usuario: ${userMessage}
     `;
 
+    console.log("Prompt length:", prompt.length);
+    console.log(prompt);
     const response = await genAI.models.generateContent({
         model: 'gemini-2.5-flash',
         contents: prompt,

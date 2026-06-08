@@ -24,7 +24,7 @@ export const login = async (request, response) => {
     if (usuario.password !== password) {
         return response.status(401).json({ msg: "Contraseña incorrecta" });
     } else {
-        const token = jwt.sign({ email: usuario.email }, config.jwtTokenSecret, { expiresIn: config.jwtExpires });
+        const token = jwt.sign({_id: usuario._id}, config.jwtTokenSecret, { expiresIn: config.jwtExpires });
         return response.status(200).json({ token });
     }
 };
