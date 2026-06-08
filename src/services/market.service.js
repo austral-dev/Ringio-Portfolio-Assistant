@@ -1,4 +1,4 @@
-import { getCryptoPrice, getTopCoins } from '../repositories/market.repository.js';
+import { getCryptoPrice, getTopCoins, getStockPrice, getTopStocks } from '../repositories/market.repository.js';
 
 export const getCryptoPriceService = async (coinIds) => {
     const data = await getCryptoPrice(coinIds);
@@ -29,4 +29,32 @@ export const getTopCoinsService = async (limit = 10) => {
     });
 
     return `Top ${limit} criptomonedas por market cap:\n` + result.join('\n');
+};
+
+
+
+export const getStockPriceService = async (symbol) => {
+    const data = await getStockPrice(symbol);
+
+    if (!data || !data['01. symbol']) {
+        return `No se encontraron datos para el símbolo: ${symbol}`;
+    }
+
+    const change = parseFloat(data['10. change percent']).toFixed(2);
+    const direction = parseFloat(data['10. change percent']) > 0 ? '📈' : '📉';
+
+    return `${data['01. symbol']}: $${data['05. price']} USD (${direction} ${change}% en las últimas 24hs)`;
+};
+
+export const getTopStocksService = async () => {
+    const data = await getTopStocks();
+
+    const result = data.map((stock) => {
+        const change = parseFloat(stock['10. change percent']).toFixed(2);
+        const direction = parseFloat(stock['10. change percent']) > 0 ? '📈' : '📉';
+
+        return `${stock['01. symbol']}: $${stock['05. price']} USD (${direction} ${change}% en las últimas 24hs)`;
+    });
+
+    return `Principales acciones del mercado:\n` + result.join('\n');
 };
