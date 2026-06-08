@@ -65,6 +65,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 ### Pregunta fuera de tema
 POST http://localhost:1337/api/v1/chat
 Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
 
 {
     "message": "¿Quién ganó el mundial 2022?"
