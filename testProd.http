@@ -1,0 +1,44 @@
+@prodUrl = https://trabajo-integrador-tp2.onrender.com/
+
+### Register
+POST {{prodUrl}}api/v1/auth/register
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
+
+
+### Login
+# @name loginRequest
+POST {{prodUrl}}api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
+
+
+### Ruta protegida
+GET {{prodUrl}}health
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+
+### Chat con la IA
+POST {{prodUrl}}api/v1/chat
+Content-Type: application/json
+
+{
+    "message": "¿Cuáles son las mejores criptomonedas para invertir a largo plazo?"
+}
+
+
+### Pregunta fuera de tema
+POST {{prodUrl}}api/v1/chat0
+Content-Type: application/json
+
+{
+    "message": "¿Quién ganó el mundial 2022?"
+}

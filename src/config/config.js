@@ -4,5 +4,5 @@ export const config = {
     geminiApiKey: process.env.GEMINI_API_KEY,
     alphaVantageApiKey: process.env.ALPHA_VANTAGE_API_KEY,
     topStocks: process.env.TOP_STOCKS?.split(',') ?? [],
-
+    mongodbUri: process.env.MONGODB_URI,
 }
