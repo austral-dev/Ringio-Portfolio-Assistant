@@ -1,25 +1,23 @@
 import jwt from 'jsonwebtoken';
 import { config } from '../config/config.js';
+import { User } from '../models/users.schema.js';
 
-const usuarios = [];
-
-export const register = (request, response) => {
+export const register = async (request, response) => {
     const { email, password } = request.body;
     
-    for (const usuario of usuarios) {
-        if (usuario.email === email) {
+    const usuario = await User.findOne({ email: email });
+        if (usuario != null) {
             return response.status(400).json({ msg: "El usuario ingresado ya está registrado" });
         }
-    }
-    usuarios.push({ email, password });
+    await User.create({ email, password });
     return response.status(201).json({ msg: "Usuario registrado con éxito" });
 };
 
-export const login = (request, response) => {
+export const login = async (request, response) => {
     const { email, password } = request.body;
     
-    const usuario = usuarios.find((u) => u.email === email);
-    if (!usuario) {
+    const usuario = await User.findOne({ email: email });
+    if (usuario == null) {
         return response.status(401).json({ msg: "Usuario no autorizado" });
     }
 
