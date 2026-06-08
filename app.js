@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { authRouter } from './src/routes/auth.route.js';
 import { aiRouter } from './src/routes/ai.route.js';
+import { userRouter } from './src/routes/user.route.js';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get("/health", (request, response) => {
 
 app.use("/api/v1", authRouter);
 app.use("/api/v1", aiRouter);
+app.use("/api/v1", userRouter);
 
 
 app.use("/", (request, response) => {
