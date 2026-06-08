@@ -1,5 +1,5 @@
 import { chatWithAI } from '../services/ai.service.js';
-import { crearChat } from '../repositories/mongo.repository.js';
+import { crearChat } from '../repositories/mongo.chat.repository.js';
 
 export const chat = async (req, res) => {
     const { message } = req.body;
