@@ -15,8 +15,8 @@ const options = {
         description: 'Servidor local',
       },
       {
-        url: 'https://trabajo-integrador-tp2.onrender.com',
-        description: 'Servidor de producción (reemplazar con la URL real)',
+        url: 'https://trabajo-integrador-tp2.onrender.com/api/v1',
+        description: 'Servidor de producción',
       }
     ],
     components: {
