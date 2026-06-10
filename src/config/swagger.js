@@ -14,6 +14,10 @@ const options = {
         url: 'http://localhost:1337/api/v1',
         description: 'Servidor local',
       },
+      {
+        url: 'https://trabajo-integrador-tp2.onrender.com',
+        description: 'Servidor de producción (reemplazar con la URL real)',
+      }
     ],
     components: {
       securitySchemes: {
