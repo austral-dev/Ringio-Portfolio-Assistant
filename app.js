@@ -10,12 +10,16 @@ import { swaggerUi, swaggerSpec } from './src/config/swagger.js';
 const app = express();
 
 app.use(cors());
+const cspDirectives = helmet.contentSecurityPolicy.getDefaultDirectives();
+delete cspDirectives['upgrade-insecure-requests'];
+
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
-            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            ...cspDirectives,
             "script-src": ["'self'", "'unsafe-inline'"],
             "img-src": ["'self'", "data:", "validator.swagger.io"],
+            "connect-src": ["'self'", "http://localhost:1337", "http://127.0.0.1:1337"],
         },
     },
 }));
