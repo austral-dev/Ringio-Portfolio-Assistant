@@ -56,4 +56,65 @@ Authorization: Bearer {{loginRequest.response.body.token}}
     "message": "¿Quién ganó el mundial 2022?"
 }
 
+### Obtener todos los chats
+GET {{baseUrl}}/history
+Authorization: Bearer {{loginRequest.response.body.token}}
 
+### Obtener todos los chats de un usuario
+GET {{baseUrl}}/user-history
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}
+
+### Obtener todos los chats de otro usuario
+GET {{baseUrl}}/user-history
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a29dd49796a2ef5cdc44bea"}
+}
+
+### Obtener todos los chats de otro otro usuario
+GET {{baseUrl}}/user-history
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a29f3b87719c721d5aa3d9c"}
+}
+
+### Obtener un chat según id
+GET {{baseUrl}}/history/6a29c738f9c2aad887299413
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+### Obtener últimos chat de un usuario según id
+GET {{baseUrl}}/user-last-history/
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}
+
+### Eliminar un chat de un usuario según id
+DELETE {{baseUrl}}/user-history/6a29c5296ea7e91a3e89bd0b
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}
+
+### Eliminar todos los chats de un usuario
+DELETE {{baseUrl}}/user-history/
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}

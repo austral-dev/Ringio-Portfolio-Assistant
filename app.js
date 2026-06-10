@@ -6,6 +6,7 @@ import { authRouter } from './src/routes/auth.route.js';
 import { aiRouter } from './src/routes/ai.route.js';
 import { userRouter } from './src/routes/user.route.js';
 import { swaggerUi, swaggerSpec } from './src/config/swagger.js';
+import { historyRouter } from './src/routes/history.route.js';
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.get("/health", (request, response) => {
 app.use("/api/v1", authRouter);
 app.use("/api/v1", aiRouter);
 app.use("/api/v1", userRouter);
+app.use("/api/v1", historyRouter);
 
 
 app.use("/", (request, response) => {

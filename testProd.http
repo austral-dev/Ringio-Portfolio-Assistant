@@ -1,7 +1,7 @@
-@prodUrl = https://trabajo-integrador-tp2.onrender.com/
+@prodUrl = https://trabajo-integrador-tp2.onrender.com/api/v1/
 
 ### Register
-POST {{prodUrl}}api/v1/auth/register
+POST {{prodUrl}}auth/register
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 ### Login
 # @name loginRequest
-POST {{prodUrl}}api/v1/auth/login
+POST {{prodUrl}}auth/login
 Content-Type: application/json
 
 {
@@ -22,12 +22,12 @@ Content-Type: application/json
 
 
 ### Ruta protegida
-GET {{prodUrl}}health
+GET https://trabajo-integrador-tp2.onrender.com/health
 Authorization: Bearer {{loginRequest.response.body.token}}
 
 
 ### Chat con la IA
-POST {{prodUrl}}api/v1/chat
+POST {{prodUrl}}chat
 Authorization: Bearer {{loginRequest.response.body.token}}
 Content-Type: application/json
 
@@ -37,10 +37,73 @@ Content-Type: application/json
 
 
 ### Pregunta fuera de tema
-POST {{prodUrl}}api/v1/chat
+POST {{prodUrl}}chat
 Authorization: Bearer {{loginRequest.response.body.token}}
 Content-Type: application/json
 
 {
     "message": "¿Quién ganó el mundial 2022?"
+}
+
+### Obtener todos los chats
+GET {{prodUrl}}/history
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+### Obtener todos los chats de un usuario
+GET {{prodUrl}}/user-history
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}
+
+### Obtener todos los chats de otro usuario
+GET {{prodUrl}}/user-history
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a29dd49796a2ef5cdc44bea"}
+}
+
+### Obtener todos los chats de otro otro usuario
+GET {{prodUrl}}/user-history
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a29f3b87719c721d5aa3d9c"}
+}
+
+### Obtener un chat según id
+GET {{prodUrl}}/history/6a29c738f9c2aad887299413
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+### Obtener últimos chat de un usuario según id
+GET {{prodUrl}}/user-last-history/
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}
+
+### Eliminar un chat de un usuario según id
+DELETE {{prodUrl}}/user-history/6a29c5296ea7e91a3e89bd0b
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
+}
+
+### Eliminar todos los chats de un usuario
+DELETE {{prodUrl}}/user-history/
+Content-Type: application/json
+Authorization: Bearer {{loginRequest.response.body.token}}
+
+{
+    "user": {"userId": "6a26fd881c17ea2c546892dd"}
 }
