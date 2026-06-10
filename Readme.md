@@ -2,7 +2,7 @@
 
 ---
 
-# Investment Portfolio Assistant — API
+# Ringio Portfolio Assistant - API
 
 > API REST para asistencia inteligente en la gestión de portfolios de inversión, potenciada por un sistema RAG con datos del mercado en tiempo real.
 
@@ -117,7 +117,7 @@ ISC
 
 # 🇺🇸 English
 
-# Investment Portfolio Assistant — API
+# Ringio Portfolio Assistant - API
 
 > REST API for intelligent investment portfolio management assistance, powered by a RAG system with real-time market data.
 
