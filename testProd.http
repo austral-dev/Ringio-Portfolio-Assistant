@@ -28,6 +28,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 
 ### Chat con la IA
 POST {{prodUrl}}api/v1/chat
+Authorization: Bearer {{loginRequest.response.body.token}}
 Content-Type: application/json
 
 {
@@ -36,7 +37,8 @@ Content-Type: application/json
 
 
 ### Pregunta fuera de tema
-POST {{prodUrl}}api/v1/chat0
+POST {{prodUrl}}api/v1/chat
+Authorization: Bearer {{loginRequest.response.body.token}}
 Content-Type: application/json
 
 {

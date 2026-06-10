@@ -5,4 +5,5 @@ export const config = {
     alphaVantageApiKey: process.env.ALPHA_VANTAGE_API_KEY,
     topStocks: process.env.TOP_STOCKS?.split(',') ?? [],
     mongodbUri: process.env.MONGODB_URI,
+    coinGeckoApiKey: process.env.COIN_GECKO_API_KEY,   
 }
