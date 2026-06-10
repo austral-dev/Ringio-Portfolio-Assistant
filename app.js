@@ -5,14 +5,25 @@ import morgan from 'morgan';
 import { authRouter } from './src/routes/auth.route.js';
 import { aiRouter } from './src/routes/ai.route.js';
 import { userRouter } from './src/routes/user.route.js';
+import { swaggerUi, swaggerSpec } from './src/config/swagger.js';
 
 const app = express();
 
 app.use(cors());
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "script-src": ["'self'", "'unsafe-inline'"],
+            "img-src": ["'self'", "data:", "validator.swagger.io"],
+        },
+    },
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.static('static'));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/health", (request, response) => {
     response.status(200).json({status: "ok", message: "El servidor está conectado y funciona correctamente.", timestamp: new Date().toISOString()})
