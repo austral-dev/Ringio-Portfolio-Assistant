@@ -7,6 +7,9 @@ const ALPHA_VANTAGE_BASE_URL = 'https://www.alphavantage.co/query';
 
 export const getCryptoPrice = async (coinIds) => {
     const response = await axios.get(`${COINGECKO_BASE_URL}/simple/price`, {
+        headers: {
+            'x-cg-demo-api-key': config.coinGeckoApiKey
+        },
         params: {
             ids: coinIds.join(','),
             vs_currencies: 'usd',
@@ -19,6 +22,9 @@ export const getCryptoPrice = async (coinIds) => {
 
 export const getTopCoins = async (limit = 10) => {
     const response = await axios.get(`${COINGECKO_BASE_URL}/coins/markets`, {
+        headers: {
+            'x-cg-demo-api-key': config.coinGeckoApiKey,
+        },
         params: {
             vs_currency: 'usd',
             order: 'market_cap_desc',
