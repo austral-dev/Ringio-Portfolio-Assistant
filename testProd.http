@@ -46,11 +46,11 @@ Content-Type: application/json
 }
 
 ### Obtener todos los chats
-GET {{prodUrl}}/history
+GET {{prodUrl}}history
 Authorization: Bearer {{loginRequest.response.body.token}}
 
 ### Obtener todos los chats de un usuario
-GET {{prodUrl}}/user-history
+GET {{prodUrl}}user-history
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -59,7 +59,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 }
 
 ### Obtener todos los chats de otro usuario
-GET {{prodUrl}}/user-history
+GET {{prodUrl}}user-history
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -68,7 +68,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 }
 
 ### Obtener todos los chats de otro otro usuario
-GET {{prodUrl}}/user-history
+GET {{prodUrl}}user-history
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -77,12 +77,12 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 }
 
 ### Obtener un chat según id
-GET {{prodUrl}}/history/6a29c738f9c2aad887299413
+GET {{prodUrl}}history/6a29c738f9c2aad887299413
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
 ### Obtener últimos chat de un usuario según id
-GET {{prodUrl}}/user-last-history/
+GET {{prodUrl}}user-last-history/
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -91,7 +91,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 }
 
 ### Eliminar un chat de un usuario según id
-DELETE {{prodUrl}}/user-history/6a29c5296ea7e91a3e89bd0b
+DELETE {{prodUrl}}user-history/6a29c5296ea7e91a3e89bd0b
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
@@ -100,7 +100,7 @@ Authorization: Bearer {{loginRequest.response.body.token}}
 }
 
 ### Eliminar todos los chats de un usuario
-DELETE {{prodUrl}}/user-history/
+DELETE {{prodUrl}}user-history/
 Content-Type: application/json
 Authorization: Bearer {{loginRequest.response.body.token}}
 
